@@ -1,0 +1,99 @@
+CreateTraining: width:16,height:16,type:RGB
+Input: image:./emojisCut/emoji_1.png, identity:smiley_face
+Input: image:./emojisCut/emoji_2.png, identity:smiley_face
+Input: image:./emojisCut/emoji_3.png, identity:smiley_face
+Input: image:./emojisCut/emoji_4.png, identity:smiley_face
+Input: image:./emojisCut/emoji_5.png, identity:smiley_face
+Input: image:./emojisCut/emoji_6.png, identity:smiley_face
+Input: image:./emojisCut/emoji_7.png, identity:smiley_face
+Input: image:./emojisCut/emoji_8.png, identity:smiley_face
+Input: image:./emojisCut/emoji_9.png, identity:sad_face
+Input: image:./emojisCut/emoji_10.png, identity:sad_face
+Input: image:./emojisCut/emoji_11.png, identity:sad_face
+Input: image:./emojisCut/emoji_12.png, identity:sad_face
+Input: image:./emojisCut/emoji_13.png, identity:sad_face
+Input: image:./emojisCut/emoji_14.png, identity:sad_face
+Input: image:./emojisCut/emoji_15.png, identity:sad_face
+Input: image:./emojisCut/emoji_16.png, identity:sad_face
+Input: image:./emojisCut/emoji_17.png, identity:neutral_face
+Input: image:./emojisCut/emoji_18.png, identity:neutral_face
+Input: image:./emojisCut/emoji_19.png, identity:neutral_face
+Input: image:./emojisCut/emoji_20.png, identity:neutral_face
+Input: image:./emojisCut/emoji_21.png, identity:neutral_face
+Input: image:./emojisCut/emoji_22.png, identity:neutral_face
+Input: image:./emojisCut/emoji_23.png, identity:neutral_face
+Input: image:./emojisCut/emoji_24.png, identity:neutral_face
+Input: image:./emojisCut/emoji_25.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_26.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_27.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_28.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_29.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_30.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_31.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_32.png, identity:heart_eyes_face
+Input: image:./emojisCut/emoji_33.png, identity:cool_face
+Input: image:./emojisCut/emoji_34.png, identity:cool_face
+Input: image:./emojisCut/emoji_35.png, identity:cool_face
+Input: image:./emojisCut/emoji_36.png, identity:cool_face
+Input: image:./emojisCut/emoji_37.png, identity:cool_face
+Input: image:./emojisCut/emoji_38.png, identity:cool_face
+Input: image:./emojisCut/emoji_39.png, identity:cool_face
+Input: image:./emojisCut/emoji_40.png, identity:cool_face
+Input: image:./emojisCut/emoji_41.png, identity:wink_face
+Input: image:./emojisCut/emoji_42.png, identity:wink_face
+Input: image:./emojisCut/emoji_43.png, identity:wink_face
+Input: image:./emojisCut/emoji_44.png, identity:wink_face
+Input: image:./emojisCut/emoji_45.png, identity:wink_face
+Input: image:./emojisCut/emoji_46.png, identity:wink_face
+Input: image:./emojisCut/emoji_47.png, identity:wink_face
+Input: image:./emojisCut/emoji_48.png, identity:wink_face
+Network: hidden1:100, hidden2:0
+Train: Mode:GUI, Minutes:0, StrategyError:0.25,StrategyCycles:100
+Whatis: image:./emojisCut/emoji_1.png
+Whatis: image:./emojisCut/emoji_2.png
+Whatis: image:./emojisCut/emoji_3.png
+Whatis: image:./emojisCut/emoji_4.png
+Whatis: image:./emojisCut/emoji_5.png
+Whatis: image:./emojisCut/emoji_6.png
+Whatis: image:./emojisCut/emoji_7.png
+Whatis: image:./emojisCut/emoji_8.png
+Whatis: image:./emojisCut/emoji_9.png
+Whatis: image:./emojisCut/emoji_10.png
+Whatis: image:./emojisCut/emoji_11.png
+Whatis: image:./emojisCut/emoji_12.png
+Whatis: image:./emojisCut/emoji_13.png
+Whatis: image:./emojisCut/emoji_14.png
+Whatis: image:./emojisCut/emoji_15.png
+Whatis: image:./emojisCut/emoji_16.png
+Whatis: image:./emojisCut/emoji_17.png
+Whatis: image:./emojisCut/emoji_18.png
+Whatis: image:./emojisCut/emoji_19.png
+Whatis: image:./emojisCut/emoji_20.png
+Whatis: image:./emojisCut/emoji_21.png
+Whatis: image:./emojisCut/emoji_22.png
+Whatis: image:./emojisCut/emoji_23.png
+Whatis: image:./emojisCut/emoji_24.png
+Whatis: image:./emojisCut/emoji_25.png
+Whatis: image:./emojisCut/emoji_26.png
+Whatis: image:./emojisCut/emoji_27.png
+Whatis: image:./emojisCut/emoji_28.png
+Whatis: image:./emojisCut/emoji_29.png
+Whatis: image:./emojisCut/emoji_30.png
+Whatis: image:./emojisCut/emoji_31.png
+Whatis: image:./emojisCut/emoji_32.png
+Whatis: image:./emojisCut/emoji_33.png
+Whatis: image:./emojisCut/emoji_34.png
+Whatis: image:./emojisCut/emoji_35.png
+Whatis: image:./emojisCut/emoji_36.png
+Whatis: image:./emojisCut/emoji_37.png
+Whatis: image:./emojisCut/emoji_38.png
+Whatis: image:./emojisCut/emoji_39.png
+Whatis: image:./emojisCut/emoji_40.png
+Whatis: image:./emojisCut/emoji_41.png
+Whatis: image:./emojisCut/emoji_42.png
+Whatis: image:./emojisCut/emoji_43.png
+Whatis: image:./emojisCut/emoji_44.png
+Whatis: image:./emojisCut/emoji_45.png
+Whatis: image:./emojisCut/emoji_46.png
+Whatis: image:./emojisCut/emoji_47.png
+Whatis: image:./emojisCut/emoji_48.png
