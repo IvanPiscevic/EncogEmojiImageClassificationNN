@@ -100,7 +100,8 @@ public class ImageNeuralNetwork {
 			System.out.println("Must specify command file.  See source for format.");
 		} else {
 			try {
-				cutImage("./emojisCut/first_six_merge.png");
+				cutImageTrain("./emojisCut/complete_merge.jpg");
+				cutImageTest("./emojisCut/microsoft_merge_jpeg2.jpg");
 				runPythonScript();
 				final ImageNeuralNetwork program = new ImageNeuralNetwork();
 				program.execute(args[0]);
@@ -300,15 +301,36 @@ public class ImageNeuralNetwork {
 				+ this.neuron2identity.get(winner));
 	}
 
-	public static void cutImage(String imgPath) throws IOException {
+	public static void cutImageTrain(String imgPath) throws IOException {
 		final BufferedImage source = ImageIO.read(new File(imgPath));
 		int idx = 1, y = 0;
-		int numOfEmojiClasses = 6;
+		int numOfEmojiClasses = 10;
 		for (int i = 0; i < numOfEmojiClasses; i++) {
 			for (int x = 0; x < source.getWidth(); x += 100) {
-				ImageIO.write(source.getSubimage(x, y, 100, 100), "png", new File("./emojisCut/emoji_" + idx++ + ".png"));
+				ImageIO.write(source.getSubimage(x, y, 100, 100), "jpg", new File("./emojisCut/emoji_" + idx++ + ".jpg"));
 			}
 			y += 100;
+		}
+	}
+	public static void cutImageTest(String imgPath) throws IOException {
+		final BufferedImage source = ImageIO.read(new File(imgPath));
+		int idx = 99; int counter = 0;
+		String emojiName = "";
+		for (int x = 0; x < source.getWidth(); x += 100) {
+			switch (counter) {
+				case 0 -> emojiName = "microsoft_cool";
+				case 1 -> emojiName = "microsoft_hearts";
+				case 2 -> emojiName = "microsoft_sad";
+				case 3 -> emojiName = "microsoft_neutral";
+				case 4 -> emojiName = "microsoft_happy";
+				case 5 -> emojiName = "microsoft_wink";
+				case 6 -> emojiName = "microsoft_money";
+				case 7 -> emojiName = "microsoft_nerd";
+				case 8 -> emojiName = "microsoft_sleeping";
+				case 9 -> emojiName = "microsoft_clown";
+			}
+			ImageIO.write(source.getSubimage(x, 0, 100, 100), "jpg", new File("./emojisCut/emoji_" + emojiName + ".jpg"));
+			counter++;
 		}
 	}
 	public static void clearFolder(String folderPath) {
