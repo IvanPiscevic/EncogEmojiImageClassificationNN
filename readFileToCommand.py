@@ -47,7 +47,7 @@ def walk_through_files(emoji_sorted_list, flag, f, file_extension='.png'):
     emoji_counter = 0
 
     for emoji in emoji_sorted_list:
-        if flag == 0:
+        if flag == 0 and not "merge" in emoji:
                 if emoji_counter < 8:
                     f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:smiley_face\n")
                 elif emoji_counter >= 8 and emoji_counter < 16:
@@ -60,26 +60,43 @@ def walk_through_files(emoji_sorted_list, flag, f, file_extension='.png'):
                     f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:cool_face\n")
                 elif emoji_counter >= 40 and emoji_counter < 48:
                     f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:wink_face\n")
+                elif emoji_counter >= 48 and emoji_counter < 56:
+                    f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:money_face\n")
+                elif emoji_counter >= 56 and emoji_counter < 64:
+                    f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:nerd_face\n")
+                elif emoji_counter >= 64 and emoji_counter < 72:
+                    f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:sleeping_face\n")
+                elif emoji_counter >= 72 and emoji_counter < 80:
+                    f.write(f"Input: image:./{FOLDER_CONST}/{emoji}, identity:clown_face\n")
+                else:
+                    break
                 emoji_counter += 1
 
         elif flag == 1 and not "merge" in emoji:
                 # counter += counter + 1
                 f.write(f"Whatis: image:./{FOLDER_CONST}/{emoji}\n")
 
+#                 f.write(f"Whatis: image:./{FOLDER_CONST}/emoji_99.jpg\n")
+#                 f.write(f"Whatis: image:./{FOLDER_CONST}/emoji_98.jpg\n")
+#                 f.write(f"Whatis: image:./{FOLDER_CONST}/emoji_97.jpg\n")
+#                 f.write(f"Whatis: image:./{FOLDER_CONST}/emoji_96.jpg\n")
+#                 f.write(f"Whatis: image:./{FOLDER_CONST}/emoji_95.jpg\n")
+#                 f.write(f"Whatis: image:./{FOLDER_CONST}/emoji_94.jpg\n")
+#                 break
 
 width = 16
 height = 16
 img_type = "RGB"
 hidden_1 = 100
 hidden_2 = 0
-mode = "GUI"
-minutes = 0
+mode = "gui"
+minutes = 1
 
 emoji_sorted_list = human_sort(getFilesFromDir())
 # print(emoji_sorted_list)
 f = open('command_emoji.txt', 'w')
 f.write(f"CreateTraining: width:{width},height:{height},type:{img_type}\n")
-walk_through_files(emoji_sorted_list, flag=0, f=f, file_extension=".png")
+walk_through_files(emoji_sorted_list, flag=0, f=f, file_extension=".jpg")
 f.write(f"Network: hidden1:{hidden_1}, hidden2:{hidden_2}\nTrain: Mode:{mode}, Minutes:{minutes}, StrategyError:0.25,StrategyCycles:100\n")
-walk_through_files(emoji_sorted_list, flag=1, f=f, file_extension=".png")
+walk_through_files(emoji_sorted_list, flag=1, f=f, file_extension=".jpg")
 f.close()
