@@ -89,7 +89,7 @@ height = 16
 img_type = "RGB"
 hidden_1 = 100
 hidden_2 = 0
-mode = "gui"
+mode = "Console"
 minutes = 1
 
 emoji_sorted_list = human_sort(getFilesFromDir())

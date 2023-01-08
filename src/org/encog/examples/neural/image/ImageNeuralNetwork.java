@@ -47,6 +47,8 @@ import org.encog.ml.data.basic.BasicMLData;
 import org.encog.ml.train.strategy.ResetStrategy;
 import org.encog.ml.train.strategy.Strategy;
 import org.encog.neural.networks.BasicNetwork;
+import org.encog.neural.networks.training.propagation.back.Backpropagation;
+import org.encog.neural.networks.training.propagation.quick.QuickPropagation;
 import org.encog.neural.networks.training.propagation.resilient.ResilientPropagation;
 import org.encog.platformspecific.j2se.TrainingDialog;
 import org.encog.platformspecific.j2se.data.image.ImageMLData;
@@ -101,7 +103,8 @@ public class ImageNeuralNetwork {
 		} else {
 			try {
 				cutImageTrain("./emojisCut/complete_merge.jpg");
-				cutImageTest("./emojisCut/microsoft_merge_jpeg2.jpg");
+				cutImageTest("./emojisCut/microsoft_merge.jpg", 1);
+//				cutImageTest("./emojisCut/toss_merge.jpg");
 				runPythonScript();
 				final ImageNeuralNetwork program = new ImageNeuralNetwork();
 				program.execute(args[0]);
@@ -276,8 +279,10 @@ public class ImageNeuralNetwork {
 		final double strategyError = Double.parseDouble(strStrategyError);
 		final int strategyCycles = Integer.parseInt(strStrategyCycles);
 
-		final ResilientPropagation train = new ResilientPropagation(this.network, this.training);
-		train.addStrategy(new ResetStrategy(strategyError, strategyCycles));
+//		final ResilientPropagation train = new ResilientPropagation(this.network, this.training);
+//		final Backpropagation train = new Backpropagation(this.network, this.training);
+		final QuickPropagation train = new QuickPropagation(this.network, this.training);
+//		train.addStrategy(new ResetStrategy(strategyError, strategyCycles));
 
 		if (strMode.equalsIgnoreCase("gui")) {
 			TrainingDialog.trainDialog(train, this.network, this.training);
@@ -312,22 +317,50 @@ public class ImageNeuralNetwork {
 			y += 100;
 		}
 	}
-	public static void cutImageTest(String imgPath) throws IOException {
+	public static void cutImageTest(String imgPath, int flag) throws IOException {
 		final BufferedImage source = ImageIO.read(new File(imgPath));
 		int idx = 99; int counter = 0;
 		String emojiName = "";
 		for (int x = 0; x < source.getWidth(); x += 100) {
-			switch (counter) {
-				case 0 -> emojiName = "microsoft_cool";
-				case 1 -> emojiName = "microsoft_hearts";
-				case 2 -> emojiName = "microsoft_sad";
-				case 3 -> emojiName = "microsoft_neutral";
-				case 4 -> emojiName = "microsoft_happy";
-				case 5 -> emojiName = "microsoft_wink";
-				case 6 -> emojiName = "microsoft_money";
-				case 7 -> emojiName = "microsoft_nerd";
-				case 8 -> emojiName = "microsoft_sleeping";
-				case 9 -> emojiName = "microsoft_clown";
+			if (flag == 1) {
+				switch (counter) {
+					case 0 -> emojiName = "microsoft_cool";
+					case 1 -> emojiName = "microsoft_hearts";
+					case 2 -> emojiName = "microsoft_sad";
+					case 3 -> emojiName = "microsoft_neutral";
+					case 4 -> emojiName = "microsoft_happy";
+					case 5 -> emojiName = "microsoft_wink";
+					case 6 -> emojiName = "microsoft_money";
+					case 7 -> emojiName = "microsoft_nerd";
+					case 8 -> emojiName = "microsoft_sleeping";
+					case 9 -> emojiName = "microsoft_clown";
+				}
+			} else if (flag == 2) {
+				switch (counter) {
+					case 0 -> emojiName = "toss_clown";
+					case 1 -> emojiName = "toss_sleeping";
+					case 2 -> emojiName = "toss_money";
+					case 3 -> emojiName = "toss_wink";
+					case 4 -> emojiName = "toss_nerd";
+					case 5 -> emojiName = "toss_happy";
+					case 6 -> emojiName = "toss_sad";
+					case 7 -> emojiName = "toss_neutral";
+					case 8 -> emojiName = "toss_heart";
+					case 9 -> emojiName = "toss_cool";
+				}
+			} else {
+				switch (counter) {
+					case 0 -> emojiName = "tsticker_happy";
+					case 1 -> emojiName = "tsticker_sad";
+					case 2 -> emojiName = "tsticker_neutral";
+					case 3 -> emojiName = "tsticker_heart";
+					case 4 -> emojiName = "tsticker_cool";
+					case 5 -> emojiName = "tsticker_wink";
+					case 6 -> emojiName = "tsticker_money";
+					case 7 -> emojiName = "tsticker_nerd";
+					case 8 -> emojiName = "tsticker_sleeping";
+					case 9 -> emojiName = "tsticker_clown";
+				}
 			}
 			ImageIO.write(source.getSubimage(x, 0, 100, 100), "jpg", new File("./emojisCut/emoji_" + emojiName + ".jpg"));
 			counter++;
